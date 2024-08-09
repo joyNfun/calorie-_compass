@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caloriea Compass</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+<body>
+    <div class="container">
+        <img src="images/logo.gif"   alt="Caloriea Compass" class="center">
+        <br><p>Welcome to Caloriea Compass, your ultimate companion for tracking your daily food intake and managing your calorie consumption. <br> <br> Simply choose the date, your food category, enter the amount, and let Caloriea Compass do the rest.</p> <p class="font">Start your journey to a healthier you today!</p> 
+        <div class="form-calendar-wrapper">
+            <div id="calendar-container">
+                <div id="calendar"></div>
+            </div>
+            
+            <div class="form-picture-wrapper">
+                <form id="food-form">
+                    <input type="hidden" id="entry-date" name="entry-date" required>
+                    <select id="food-category" name="food-category" required>
+                        <option value="" disabled selected>Select food category</option>
+                        <option value="rice">Rice (130 cal/100g)</option>
+                        <option value="chicken">Chicken (165 cal/100g)</option>
+                        <option value="vegetable">vegetable (55 cal/100g)</option>
+                        <option value="fish">Fish (206 cal/100g)</option>
+                        <option value="pork">Pork (242 cal/100g)</option>
+                        <option value="beef">Beef (250 cal/100g)</option>
+                        <option value="seafood">Seafood (99 cal/100g)</option>
+                        <option value="pizza">Pizza (266 cal/100g)</option>
+                        <option value="spaghetti">Spaghetti (158 cal/100g)</option>
+                        <option value="bread">Bread (265 cal/100g)</option>
+                        <option value="noodle">Noodle (138 cal/100g)</option>
+                        <option value="fruits">Fruits (52 cal/100g)</option>
+                    </select>
+                    <div id="food-picture-container">
+                        <img id="food-picture" src="images/general_food.jpg" alt="Food Picture">
+                    </div>
+                    <input type="number" id="amount" name="amount" placeholder="Enter amount in grams or ml" required>
+                    <button type="submit">Add</button><button type="button"   id="view-report-button" onclick="location.href='report.html'">View Daily Calorie Report</button>
+                    
+                </form>
+
+            </div>
+        </div>
+        <div id="food-tables"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="app.js"></script>
+</body>
+</html>
