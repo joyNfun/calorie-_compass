@@ -1,9 +1,8 @@
 let db;
-const request = indexedDB.open('calorieTrackerDB', 1); // Match with app.js
+const request = indexedDB.open('calorieTrackerDB', 1); 
 
 request.onupgradeneeded = function(e) {
     db = e.target.result;
-    // Create the object store if it doesn't exist
     if (!db.objectStoreNames.contains('calories')) {
         const store = db.createObjectStore('calories', { keyPath: 'id', autoIncrement: true });
         store.createIndex('date', 'date', { unique: false });
@@ -12,7 +11,7 @@ request.onupgradeneeded = function(e) {
 
 request.onsuccess = function(e) {
     db = e.target.result;
-    displayChart(); // Call displayChart once the database is opened successfully
+    displayChart(); 
 };
 
 request.onerror = function(e) {
@@ -20,7 +19,7 @@ request.onerror = function(e) {
 };
 
 function displayChart() {
-    let transaction = db.transaction(['calories'], 'readonly'); // Use 'calories' object store
+    let transaction = db.transaction(['calories'], 'readonly'); 
     let objectStore = transaction.objectStore('calories');
     let request = objectStore.getAll();
 
