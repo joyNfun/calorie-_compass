@@ -1,9 +1,18 @@
 let db;
-const request = indexedDB.open('foodTracker', 1);
+const request = indexedDB.open('calorieTrackerDB', 1); // Match with app.js
+
+request.onupgradeneeded = function(e) {
+    db = e.target.result;
+    // Create the object store if it doesn't exist
+    if (!db.objectStoreNames.contains('calories')) {
+        const store = db.createObjectStore('calories', { keyPath: 'id', autoIncrement: true });
+        store.createIndex('date', 'date', { unique: false });
+    }
+};
 
 request.onsuccess = function(e) {
     db = e.target.result;
-    displayChart();
+    displayChart(); // Call displayChart once the database is opened successfully
 };
 
 request.onerror = function(e) {
@@ -11,8 +20,8 @@ request.onerror = function(e) {
 };
 
 function displayChart() {
-    let transaction = db.transaction(['foods'], 'readonly');
-    let objectStore = transaction.objectStore('foods');
+    let transaction = db.transaction(['calories'], 'readonly'); // Use 'calories' object store
+    let objectStore = transaction.objectStore('calories');
     let request = objectStore.getAll();
 
     request.onsuccess = function() {
@@ -28,6 +37,10 @@ function displayChart() {
         });
 
         updateChart(dailyCalories);
+    };
+
+    request.onerror = function(event) {
+        console.error('Request error:', event.target.errorCode);
     };
 }
 
