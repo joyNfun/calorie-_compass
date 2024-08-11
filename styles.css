@@ -55,7 +55,7 @@ button:hover {
 
 #calendar-container {
     display: flex;
-    justify-content: flex-end; /* Align calendar to the right */
+    justify-content: flex-end; 
     margin-bottom: 20px;
     flex-grow: 1;
 }
@@ -79,7 +79,7 @@ button:hover {
 .form-picture-wrapper {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Align input fields to the left */
+    align-items: flex-start; 
     margin-left: 20px;
     flex-grow: 1;
 }
@@ -111,19 +111,19 @@ th {
     width: 50%;
 }
 
-/* Media query for mobile devices */
+
 @media (max-width: 768px) {
     .form-calendar-wrapper {
-        flex-direction: column; /* Stack calendar and input fields vertically */
+        flex-direction: column; 
     }
 
     #calendar-container {
-        justify-content: center; /* Center the calendar on mobile */
-        margin-bottom: 15px; /* Adjust spacing */
+        justify-content: center; 
+        margin-bottom: 15px; 
     }
 
     .form-picture-wrapper {
-        align-items: center; /* Center input fields on mobile */
-        margin-left: 0; /* Remove left margin on mobile */
+        align-items: center; 
+        margin-left: 0; 
     }
 }
