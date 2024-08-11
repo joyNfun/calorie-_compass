@@ -16,16 +16,14 @@ body {
 
 h1 {
     text-align: center;
-    font-size:large;
+    font-size: large;
 }
 
 font {
     text-align: center;
-    font-size:large;
+    font-size: large;
     font-style: italic;
 }
-
-
 
 form {
     display: flex;
@@ -43,18 +41,13 @@ select, input, button {
     box-sizing: border-box; 
 }
 
-
-
 button {
     background-color: #28a745;
     color: white;
     border: none;
     cursor: pointer;
     width: 100%;  
-   
 }
-
-
 
 button:hover {
     background-color: #218838;
@@ -62,8 +55,9 @@ button:hover {
 
 #calendar-container {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end; /* Align calendar to the right */
     margin-bottom: 20px;
+    flex-grow: 1;
 }
 
 #food-picture-container {
@@ -78,16 +72,16 @@ button:hover {
 
 .form-calendar-wrapper {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     gap: 15px; 
-    flex-wrap: wrap;
 }
 
 .form-picture-wrapper {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start; /* Align input fields to the left */
     margin-left: 20px;
+    flex-grow: 1;
 }
 
 #food-tables {
@@ -115,20 +109,21 @@ th {
     margin-left: auto;
     margin-right: auto;
     width: 50%;
-  }
+}
 
-  
+/* Media query for mobile devices */
 @media (max-width: 768px) {
     .form-calendar-wrapper {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: column; /* Stack calendar and input fields vertically */
+    }
+
+    #calendar-container {
+        justify-content: center; /* Center the calendar on mobile */
+        margin-bottom: 15px; /* Adjust spacing */
     }
 
     .form-picture-wrapper {
-        margin-left: 0;
-    }
-
-    select, input, button {
-        width: 100%; 
+        align-items: center; /* Center input fields on mobile */
+        margin-left: 0; /* Remove left margin on mobile */
     }
 }
